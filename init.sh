@@ -13,7 +13,9 @@ fi
 
 WORKSPACE="$(pwd | grep -oE '.*/remote-root/workspace')"
 if [[ "$WORKSPACE" ]]; then
-  rm -vrf $WORKSPACE/*
+  echo "[WORKSPACE CLEANUP]"
+  #rm -vrf $WORKSPACE/*
+  find $WORKSPACE/
 else
   echo "Not building in the workspace! If you don't know \
   what caused this error, please contact the Jenkins admin." 
