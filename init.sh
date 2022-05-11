@@ -11,10 +11,11 @@ if which docker; then
   docker ps -aq | grep -qE '*' && docker rm $(docker ps -aq)
 fi
 
+# TODO WORKSPACE MIGHT BE SHADOW NAME
 WORKSPACE="$(pwd | grep -oE '.*/remote-root/workspace')"
 if [[ "$WORKSPACE" ]]; then
   echo "[WORKSPACE CLEANUP]"
-  cd $WORKSPACE
+  WORKSPACE="$WORKSPA"
   rm -vrf $WORKSPACE/*
 else
   echo "Not building in the workspace! If you don't know \
