@@ -16,8 +16,6 @@ if [[ "$WS" ]]; then
   echo "[WORKSPACE CLEANUP]"
   WS="$WS"
   rm -vrf $WS/*
-  WORKSPACE="$WS"
-  WORKSPACE_TMP="$WS"
 else
   echo "\
 Not building in the workspace! If you don't know what \
