@@ -11,14 +11,15 @@ if which docker; then
   docker ps -aq | grep -qE '*' && docker rm $(docker ps -aq)
 fi
 
-# TODO WORKSPACE MIGHT BE SHADOW NAME
-WORKSPACE="$(pwd | grep -oE '.*/remote-root/workspace')"
-if [[ "$WORKSPACE" ]]; then
+WS="$(pwd | grep -oE '.*/remote-root/workspace')"
+if [[ "$WS" ]]; then
   echo "[WORKSPACE CLEANUP]"
-  WORKSPACE="$WORKSPA"
-  rm -vrf $WORKSPACE/*
+  WS="$WS"
+  rm -vrf $WS/*
 else
-  echo "Not building in the workspace! If you don't know \
-  what caused this error, please contact the Jenkins admin." 
+  echo "\
+Not building in the workspace! If you don't know what \
+caused this error, please contact the Jenkins admin.  \
+"
   exit 1
 fi
